@@ -1,0 +1,28 @@
+﻿@model List<Form>
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Forms</h2>
+<table class="table table-hover">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (Form item in Model)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Description</td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+@using (Html.BeginForm("Index", "Form", FormMethod.Get))
+{
+    @Html.TextBox("exp", null, new { @class = "form-control", placeholder = "Search" })<input type="submit" value="Search" class="btn btn-default" />
+}
